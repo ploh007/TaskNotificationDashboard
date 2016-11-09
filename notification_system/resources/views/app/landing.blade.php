@@ -22,7 +22,7 @@
                     </ul> -->
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Notification System Dashboard</h1>
+            <h1 class="page-header">{{ Auth::user()->name }}'s Dashboard</h1>
             <div class="row">
                 <div class="col-sm-6 col-md-3">
                     <button type="button" class="thumbnail" data-toggle="modal" data-target="#myModal">
@@ -157,7 +157,7 @@
                     </div> -->
             <h2 class="sub-header">Daily Tasks</h2>
             <div class="table table-condensed table-responsive">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
                             <th>Task #</th>
@@ -165,6 +165,7 @@
                             <th>Category</th>
                             <th>Due Date</th>
                             <th>Notes</th>
+                            <th>Controls</th>
                             <!-- <th>Task Status</th> -->
                         </tr>
                     </thead>

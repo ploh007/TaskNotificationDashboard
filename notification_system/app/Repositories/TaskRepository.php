@@ -7,7 +7,7 @@ use App\User;
 class TaskRepository
 {
     /**
-     * Get all of the tasks for a given user.
+     * Get all of the tasks for a given user and return the tasks based on the due date
      *
      * @param  User  $user
      * @return Collection

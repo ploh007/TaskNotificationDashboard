@@ -11,6 +11,18 @@ body {
     font-size: 13px;
 }
 
+/*html,
+body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+
+    height: 100vh;
+    margin: 0;
+}
+*/
+
 footer {
     text-align: center;
     padding: 30px;
@@ -51,9 +63,9 @@ footer {
 }
 
 table {
-    font-size: 13px;
+    font-size: 1em;
     font-weight: 600;
-    font-family: "Raleway", sans-serif;
+    /*font-family: "Raleway", sans-serif;*/
 }
 
 
@@ -218,16 +230,6 @@ table {
     display: none;
 }
 
-html,
-body {
-    background-color: #fff;
-    color: #636b6f;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
-
-    /*height: 100vh;*/
-    margin: 0;
-}
 
 .full-height {
     height: 70vh;

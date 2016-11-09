@@ -8,11 +8,11 @@ close.addEventListener('click', function() {
 
 viewTables();
 
-
-
 $( "#view-tasks" ).on( "click", function() {
     viewTables();
 });
+
+
 
 $('#createTask_form').submit(function(e) {
 
@@ -86,6 +86,9 @@ $('#createTask_form').submit(function(e) {
 
 });
 
+
+
+
 function viewTables() {
 
     $.ajaxSetup({
@@ -110,7 +113,33 @@ function viewTables() {
         success: function(data) {
             $('#taskRowsData').html('');
             $('#taskRowsData').html(data);
+
+            var monthNames = [
+              "January", "February", "March",
+              "April", "May", "June", "July",
+              "August", "September", "October",
+              "November", "December"
+            ];
+
+            $("#taskRowsData td:nth-child(3)").each(function() {
+                var category = $(this).text();
+                $(this).text($('#taskGroup option[value="'+ category +'"]').text());
+               
+            });
+
+            $("#taskRowsData td:nth-child(4)").each(function() {
+
+                var date = new Date($(this).text());
+                var day = date.getDate();
+                var monthIndex = date.getMonth();
+                var year = date.getFullYear();
+
+                $(this).text(day + " " + monthNames[monthIndex] + " " + year + " " + date.toLocaleTimeString())
+                
+            });
         },
     });
 
 }
+
+

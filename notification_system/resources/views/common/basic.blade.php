@@ -8,7 +8,6 @@
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../favicon.ico"> -->
     <title>Task Notification Dashboard</title>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -84,7 +83,7 @@
 <div id="loading"></div>
 
 <footer>
-    Crafted By Paul Loh
+    Crafted By Paul Loh <span class="glyphicon glyphicon-wrench"></span>
 </footer>
 
 <!-- Custom Javascript -->

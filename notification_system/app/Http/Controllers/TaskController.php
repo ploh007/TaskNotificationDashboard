@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
@@ -57,5 +58,21 @@ class TaskController extends Controller
         return response()->json(view('app.tasks', ['tasks' => $tasks,])->render(), 200);
 
         // return response()->json($tasks);
+    }
+
+    /*
+        Deletes the given tasks using the pair id
+    */
+    public function deleteTask(Request $request)
+    {
+
+        // Validate that tasks is valid
+        $this->validate($request, [
+            'taskid' => 'exists:tasks,id',
+        ]);
+
+        $request->user()->tasks()->where('id', '=', $request->taskid)->delete();
+
+        return response()->json($request);
     }
 }
