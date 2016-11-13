@@ -6,11 +6,11 @@
         <td>{{ $task->group }}</td>
         <td>{{ $task->dueDate }}</td>
         <td>{{ $task->notes }}</td>
-        <td><button class="btn btn-sm btn-danger" id="delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Delete Task</button></td>
+        <td><button class="btn btn-sm btn-danger delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Delete Task</button></td>
     </tr>
 @endforeach
 <script>
-$("#delete-task").on('click', function(e) {
+$(".delete-task").on('click', function(e) {
 
     e.preventDefault();
 

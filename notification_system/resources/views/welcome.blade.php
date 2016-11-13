@@ -51,5 +51,29 @@
             </p>
         </div>
     </div>
-</div> 
+</div>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="text-center">Features</h1>
+        <div class="row featurette">
+            <div class="col-md-8">
+                <p>
+                    Convential task management systems, involve continuous collection of unnecessary personal information and storage and thus, I decided to create my own task management system. App free, hassle free. A simple web app that requires me to login and pushes me notifications as long as I keep it open.
+                </p>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div class="row featurette">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-8">
+                <p>
+                    Easy creation of my task, and alerts should be given to me on demand and in a manner which informs me of information in a legible and easy manner. To use modern buzzwords "data visualization".
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
