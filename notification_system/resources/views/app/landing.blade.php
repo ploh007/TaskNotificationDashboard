@@ -8,7 +8,7 @@
                 <li><a href="#">Analytics</a></li>
                 <li><a href="#">Export</a></li>
             </ul>
-            <!--  <ul class="nav nav-sidebar">
+             <ul class="nav nav-sidebar">
                     <li><a href="">Nav item</a></li>
                     <li><a href="">Nav item again</a></li>
                     <li><a href="">One more nav</a></li>
@@ -19,7 +19,7 @@
                     <li><a href="">Nav item again</a></li>
                     <li><a href="">One more nav</a></li>
                     <li><a href="">Another nav item</a></li>
-                    </ul> -->
+                    </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">{{ Auth::user()->name }}'s Dashboard</h1>
@@ -155,24 +155,12 @@
                     <span class="text-muted">Something else</span>
                     </div>
                     </div> -->
-            <h2 class="sub-header">Daily Tasks</h2>
-            <div class="table table-condensed table-responsive">
-                <table class="table table-bordered table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th>Task #</th>
-                            <th>Task Name</th>
-                            <th>Category</th>
-                            <th>Due Date</th>
-                            <th>Notes</th>
-                            <th>Controls</th>
-                            <!-- <th>Task Status</th> -->
-                        </tr>
-                    </thead>
-                    <tbody id="taskRowsData">
-                    </tbody>
-                </table>
+
+            <div id="task-data">
+
+                
             </div>
+            
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <!-- 
                         <div class="panel panel-default">

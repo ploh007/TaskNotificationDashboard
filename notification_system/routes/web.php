@@ -31,3 +31,11 @@ Route::post('/view-tasks', 'TaskController@getTasks');
 Route::post('/create-tasks', 'TaskController@createTasks');
 
 Route::post('/delete-tasks', 'TaskController@deleteTask');
+
+Route::post('/uncomplete-tasks', 'TaskController@uncompleteTask');
+
+Route::post('/complete-tasks', 'TaskController@completeTask');
+
+Route::get('/dashboard', function () {
+    return view('app.landing');
+})->middleware('auth');

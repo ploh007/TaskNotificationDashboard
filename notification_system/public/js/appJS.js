@@ -13,7 +13,15 @@ $( "#view-tasks" ).on( "click", function() {
 });
 
 
+$(document).ajaxStart(function() {
+    $('#loading').fadeIn("slow");
+});
 
+$(document).ajaxStop(function() {
+    $('#loading').fadeOut("slow");
+});
+
+//  Create Task AJAX Query
 $('#createTask_form').submit(function(e) {
 
     // Hide Modal
@@ -25,14 +33,6 @@ $('#createTask_form').submit(function(e) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    })
-
-    $(document).ajaxStart(function() {
-        $('#loading').fadeIn("slow");
-    });
-
-    $(document).ajaxStop(function() {
-        $('#loading').fadeOut("slow");
     });
 
     // Javascript sanity check
@@ -50,8 +50,6 @@ $('#createTask_form').submit(function(e) {
         dueDate: taskDateTime,
         notes: taskNotes
     }
-
-    console.log(formData);
 
 
     $.ajax({
@@ -87,8 +85,7 @@ $('#createTask_form').submit(function(e) {
 });
 
 
-
-
+//  Displays the tasks in a tabular format
 function viewTables() {
 
     $.ajaxSetup({
@@ -97,7 +94,7 @@ function viewTables() {
         }
     })
 
-
+    // AJAX Loading Display
     $(document).ajaxStart(function() {
         $('#loading').fadeIn("slow");
     });
@@ -111,8 +108,9 @@ function viewTables() {
         type: 'POST',
         dataType: 'json',
         success: function(data) {
-            $('#taskRowsData').html('');
-            $('#taskRowsData').html(data);
+
+            $('#task-data').html('');
+            $('#task-data').html(data);
 
             var monthNames = [
               "January", "February", "March",
@@ -128,14 +126,11 @@ function viewTables() {
             });
 
             $("#taskRowsData td:nth-child(4)").each(function() {
-
                 var date = new Date($(this).text());
                 var day = date.getDate();
                 var monthIndex = date.getMonth();
                 var year = date.getFullYear();
-
                 $(this).text(day + " " + monthNames[monthIndex] + " " + year + " " + date.toLocaleTimeString())
-                
             });
         },
     });

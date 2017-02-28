@@ -39,7 +39,7 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     @if (!Auth::guest())
-                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="dashboard">Dashboard</a></li>
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Help</a></li>
@@ -63,7 +63,9 @@
                             </ul>
                         </li>
                     @else
-                        
+                        <li>
+                            <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a>
+                        </li>
                     @endif
                 </ul>
                 <!--                 <form class="navbar-form navbar-right">
@@ -73,17 +75,13 @@
         </div>
     </nav>
 
-    <div class="panel-body">
-
-          @yield('content')
-
-    </div>
+     @yield('content')
 </body>
 
 <div id="loading"></div>
 
 <footer>
-    Crafted By Paul Loh <span class="glyphicon glyphicon-wrench"></span>
+    Crafted By || Paul Loh
 </footer>
 
 <!-- Custom Javascript -->

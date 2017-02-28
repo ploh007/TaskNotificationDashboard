@@ -42,6 +42,7 @@ class TaskController extends Controller
             'group' => $request->group,
             'dueDate' => $request->dueDate,
             'notes' => $request->notes,
+            'status' => "Not Completed"
         ]);
 
         return response()->json($request);
@@ -75,4 +76,38 @@ class TaskController extends Controller
 
         return response()->json($request);
     }
+
+    /*
+        Uncompletes the given tasks using the pair id
+    */
+    public function uncompleteTask(Request $request)
+    {
+
+        // Validate that tasks is valid
+        $this->validate($request, [
+            'taskid' => 'exists:tasks,id',
+        ]);
+
+        $request->user()->tasks()->where('id', '=', $request->taskid)->update(['status' => "Not Completed"]);
+
+        return response()->json($request);
+    }
+
+    /*
+        Completes the given tasks using the pair id
+    */
+    public function completeTask(Request $request)
+    {
+
+        // Validate that tasks is valid
+        $this->validate($request, [
+            'taskid' => 'exists:tasks,id',
+        ]);
+
+        $request->user()->tasks()->where('id', '=', $request->taskid)->update(['status' => "Completed"]);
+
+        return response()->json($request);
+    }
+
+
 }
