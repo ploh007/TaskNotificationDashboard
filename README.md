@@ -1,5 +1,9 @@
 <div style="text-align:center"><img src ="readme/logo.png" /></div>
 
+## 
+![Alt](readme/tasknotification.png "Task Notification Logo")
+##
+
 # Task Notification System
 Conventional task management systems, involve continuous collection of unnecessary personal information and storage. Thus, I decided to create my own task management system. App free, hassle free. A simple web app that requires me to login and pushes me notifications as long as I keep it open. 
 
@@ -24,10 +28,38 @@ To fix issues or contribute to the project, follow the steps below
 5. Push the changes (`git push origin branch-name`)
 6. Create a pull request
 
-## Technology
+## Built Using
 * [Laravel](https://laravel.com/) - A PHP Web Application Framework
 * [Bootstrap](http://getbootstrap.com/) - A Front-End Development Framework
 * [jQuery](https://jquery.com/) - A Java Script Framework
+
+## Feature List
+* Basic Authentication & Registration
+* Home Page
+* Task Controls
+	* Create task with the following details
+		* Name
+		* Category
+		* Due Date
+		* Due Time
+		* Notes
+	* Mark Completion Status of Tasks (Complete / Incomplete)
+	* Delete Tasks
+
+## To-do
+* Create dashboard with visualization for:
+	* Task Count for given time frame (week, month, year)
+	* Tasks metrics 
+	* Estimation of time to complete tasks
+* Add/Delete Task Categories 
+* Calendar View for Tasks
+* Desktop Browser Push Notifications
+* REST API
+* Responsive View
+* Alert for tasks
+
+## Nice-to-haves
+* Color Scheme Customization
 
 ## License
 MIT © [Paul Loh](http://paulloh.com)
