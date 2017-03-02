@@ -29,9 +29,9 @@
                 <td>{{ $task->notes }}</td>
                 <td>{{ $task->status }}</td>
                 <td>
-                    <button class="btn btn-xs btn-success complete-task"><span class="glyphicon glyphicon-ok-sign"></span> Completed </button>
-                    <button class="btn btn-xs btn-primary uncomplete-task"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Un-Complete </button>
-                    <button class="btn btn-xs btn-danger delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
+                    <button class="btn btn-xs btn-default complete-task"><span class="glyphicon glyphicon-ok-sign"></span> Completed </button>
+                    <button class="btn btn-xs btn-default uncomplete-task"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Un-Complete </button>
+                    <button class="btn btn-xs btn-default delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
                 </td>
             </tr>
             @endif
@@ -70,9 +70,9 @@
                 <td>{{ $task->notes }}</td>
                 <td>{{ $task->status }}</td>
                 <td>
-                    <button class="btn btn-xs btn-success complete-task"><span class="glyphicon glyphicon-ok-sign"></span> Completed </button>
-                    <button class="btn btn-xs btn-primary uncomplete-task"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Un-Complete </button>
-                    <button class="btn btn-xs btn-danger delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
+                    <button class="btn btn-xs btn-default complete-task"><span class="glyphicon glyphicon-ok-sign"></span> Completed </button>
+                    <button class="btn btn-xs btn-default uncomplete-task"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Un-Complete </button>
+                    <button class="btn btn-xs btn-default delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
                 </td>
             </tr>
             @endif
