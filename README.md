@@ -10,7 +10,7 @@ Conventional task management systems, involve continuous collection of unnecessa
 ## Installation
 To install the task notification system on your desktop
 
-1. `git clone https://github.com/ploh007/task-notification-dashboard.git projectname`
+1. `git clone https://github.com/ploh007/task-notification-system.git projectname`
 2. `cd projectname`
 3. `composer install`
 4. `php artisan key:generate`

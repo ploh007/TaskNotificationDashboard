@@ -1,9 +1,9 @@
-
-
-<!-- View for tasks that are outstanding for the user -->
+<!--===========================================
+=            Current Tasks Section            =
+============================================-->
 <h2 class="sub-header">Tasks To Complete</h2>
 <div class="table table-condensed table-responsive">
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
                 <th>Task #</th>
@@ -17,9 +17,7 @@
             </tr>
         </thead>
         <tbody>
-
-        @foreach ($tasks as $task)
-            @if ($task->status === "Not Completed")
+            @foreach ($tasks as $task) @if ($task->status === "Not Completed")
             <tr>
                 <!-- Task Name -->
                 <td id="task-id">{{ $task->id }}</td>
@@ -34,18 +32,17 @@
                     <button class="btn btn-xs btn-default delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
                 </td>
             </tr>
-            @endif
-        @endforeach
+            @endif @endforeach
         </tbody>
     </table>
 </div>
-
+<!--====  End of Current Tasks Section  ====-->
 <!--=================================================
-=            Past Completed task Section            =
+=            Past Completed Tasks Section            =
 ==================================================-->
 <h2 class="sub-header">Past Completed Tasks</h2>
-<div class="table table-condensed table-responsive">
-    <table class="table table-bordered table-hover">
+<div class="table table-condensed table-responsive ">
+    <table class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
                 <th>Task #</th>
@@ -59,8 +56,7 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($tasks as $task)
-            @if ($task->status === "Completed")
+            @foreach ($tasks as $task) @if ($task->status === "Completed")
             <tr>
                 <!-- Task Name -->
                 <td id="task-id">{{ $task->id }}</td>
@@ -75,22 +71,22 @@
                     <button class="btn btn-xs btn-default delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
                 </td>
             </tr>
-            @endif
-        @endforeach
+            @endif @endforeach
         </tbody>
     </table>
 </div>
-<!--====  End of Past Completed task Section  ====-->
-
+<!--====  End of Past Completed Tasks Section  ====-->
 <!--====================================
 =            Script Content            =
 =====================================-->
-
-
-
-<!--====  End of Script Content  ====-->
-
 <script>
+
+var getTaskId = function (item){
+    console.log("Fetched item with the following ID:" + parseInt($(item).closest("tr").find('#task-id').text()));
+    
+    return parseInt($(item).closest("tr").find('#task-id').text());
+}
+
 $(".delete-task").on('click', function(e) {
 
     e.preventDefault();
@@ -110,8 +106,8 @@ $(".delete-task").on('click', function(e) {
     });
 
     // Conduct delete request on HTTP Post route
-    // Parse the parent node element and get the task id
-    var taskId = parseInt($(this).closest( "tr").find('#task-id').text());
+    // Parse the parent node element and get the task id to delete
+    var taskId = getTaskId(this);
 
     console.log("Deleting Task with task id:" + taskId);
 
@@ -146,7 +142,8 @@ $(".delete-task").on('click', function(e) {
 
             // Refresh table task data
             viewTables();
-        }, error: function(data, responseText) {
+        },
+        error: function(data, responseText) {
             console.log(data.responseJSON);
             console.log(responseText);
         }
@@ -173,7 +170,7 @@ $(".complete-task").on('click', function(e) {
 
     // Conduct delete request on HTTP Post route
     // Parse the parent node element and get the task id
-    var taskId = parseInt($(this).closest( "tr").find('#task-id').text());
+    var taskId = getTaskId(this);
 
     console.log("Completed Task with task id:" + taskId);
 
@@ -208,7 +205,8 @@ $(".complete-task").on('click', function(e) {
 
             // Refresh table task data
             viewTables();
-        }, error: function(data, responseText) {
+        },
+        error: function(data, responseText) {
             console.log(data.responseJSON);
             console.log(responseText);
         }
@@ -235,7 +233,7 @@ $(".uncomplete-task").on('click', function(e) {
 
     // Conduct delete request on HTTP Post route
     // Parse the parent node element and get the task id
-    var taskId = parseInt($(this).closest( "tr").find('#task-id').text());
+    var taskId = getTaskId(this);
 
     console.log("Completed Task with task id:" + taskId);
 
@@ -270,10 +268,12 @@ $(".uncomplete-task").on('click', function(e) {
 
             // Refresh table task data
             viewTables();
-        }, error: function(data, responseText) {
+        },
+        error: function(data, responseText) {
             console.log(data.responseJSON);
             console.log(responseText);
         }
     });
 });
 </script>
+<!--====  End of Script Content  ====-->

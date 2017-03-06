@@ -15,10 +15,12 @@ $( "#view-tasks" ).on( "click", function() {
 
 $(document).ajaxStart(function() {
     $('#loading').fadeIn("slow");
+    console.log("AJAX START");
 });
 
 $(document).ajaxStop(function() {
     $('#loading').fadeOut("slow");
+    console.log("AJAX STOP");
 });
 
 //  Create Task AJAX Query
@@ -43,14 +45,12 @@ $('#createTask_form').submit(function(e) {
     var taskNotes = $('#taskNotes').val();
     var taskDateTime = taskDate + " " + taskTime + ':00'; // Concatenation of Date and Time to format for SQL
 
-
     var formData = {
         name: taskName,
         group: groupDD,
         dueDate: taskDateTime,
         notes: taskNotes
     }
-
 
     $.ajax({
         url: './create-tasks',
@@ -81,7 +81,6 @@ $('#createTask_form').submit(function(e) {
             console.log(responseText);
         }
     });
-
 });
 
 
@@ -94,21 +93,13 @@ function viewTables() {
         }
     })
 
-    // AJAX Loading Display
-    $(document).ajaxStart(function() {
-        $('#loading').fadeIn("slow");
-    });
-
-    $(document).ajaxStop(function() {
-        $('#loading').fadeOut("slow");
-    });
-
     $.ajax({
         url: './view-tasks',
         type: 'POST',
         dataType: 'json',
         success: function(data) {
 
+            // Clear table data and insert formatted data
             $('#task-data').html('');
             $('#task-data').html(data);
 

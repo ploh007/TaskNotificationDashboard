@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="icon" href="../../favicon.ico"> -->
+    <link rel="icon" href="../../favicon.ico">
     <title>Task Notification Dashboard</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles -->
     <link href="./css/animate.css" rel="stylesheet">
     <link href="./css/dashboard.css" rel="stylesheet">
     <script src="./js/jquery-1.11.3.min.js"></script>
@@ -37,11 +35,8 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-
                     @if (!Auth::guest())
                         <li><a href="dashboard">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Profile</a></li>
                         <li><a href="#">Help</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -50,12 +45,9 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                    <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
-
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
@@ -68,24 +60,19 @@
                         </li>
                     @endif
                 </ul>
-                <!--                 <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form> -->
             </div>
         </div>
     </nav>
-
      @yield('content')
 </body>
 
+<!--=====================================
+=            Loading Spinner            =
+======================================-->
 <div id="loading"></div>
+<!--====  End of Loading Spinner  ====-->
 
 <footer>
     Crafted By || Paul Loh
 </footer>
-
-<!-- Custom Javascript -->
-<!-- <script src="./js/appJS.js"></script> -->
-
-
 </html>
