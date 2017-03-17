@@ -23,6 +23,10 @@ Route::auth();
 
 Route::get('/tasks', 'TaskController@index');
 
+Route::get('/help', function() {
+	return view('help');
+});
+
 Route::post('/view-tasks', 'TaskController@getTasks');
 
 Route::post('/create-tasks', 'TaskController@createTasks');

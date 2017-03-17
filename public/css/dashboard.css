@@ -100,7 +100,8 @@ table {
 
 .sidebar {
     display: none;
-    background-color: #fff;
+    background-color: #EEEEEE;
+    
 }
 
 @media (min-width: 768px) {
@@ -127,7 +128,6 @@ table {
     /* 20px padding + 1px border */
     margin-bottom: 20px;
     margin-left: -20px;
-
 }
 
 .nav-sidebar > li > a {
@@ -335,6 +335,8 @@ table {
     text-align: center;
 }
 
+/* Main Jumbotron Content */
+
 #main-jumbotron {
     background-color: #fff;
     background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/hero.jpg);
@@ -351,6 +353,9 @@ table {
     color: #fff;
     padding: 30px;
     margin: 10px;
+    animation: 1s 0.5s fadeIn ease-in-out;
+    animation-fill-mode: forwards;
+    visibility: hidden;
 }
 
 #features-jumbotron {

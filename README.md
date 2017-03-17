@@ -38,7 +38,7 @@ To fix issues or contribute to the project, follow the steps below
 * Home Page
 * Task Controls
 	* Create task with the following details
-		* Name
+		* Named
 		* Category
 		* Due Date
 		* Due Time
@@ -57,6 +57,7 @@ To fix issues or contribute to the project, follow the steps below
 * REST API
 * Responsive View
 * Alert for tasks
+* Rescheduling of recurrent tasks
 
 ## Nice-to-haves
 * Color Scheme Customization
