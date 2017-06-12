@@ -23,7 +23,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('app.landing');
+        return view('app.dashboard');
     }
 
     public function createTasks(Request $request)
@@ -32,7 +32,8 @@ class TaskController extends Controller
             'name' => 'required|max:255',
             'group' => 'required',
             'dueDate' => 'required',
-            'notes' => 'required'
+            'notes' => 'required',
+            'priority' => 'required'
         ]);
 
         $date = date_create_from_format('YYYY-MM-DD HH:MM:SS', $request->dueDate);
@@ -42,28 +43,24 @@ class TaskController extends Controller
             'group' => $request->group,
             'dueDate' => $request->dueDate,
             'notes' => $request->notes,
-            'status' => "Not Completed"
+            'status' => "Not Completed",
+            'priority' => $request->priority
         ]);
 
         return response()->json($request);
 
-        // return redirect('/tasks');
-        // return;
     }
 
     /* Fetches the list of tasks associated with the user and returns it as a json value */
     public function getTasks(Request $request)
     {
         $tasks = $this->tasks->forUser($request->user());
-
         return response()->json(view('app.tasks', ['tasks' => $tasks,])->render(), 200);
-
-        // return response()->json($tasks);
     }
 
     /*
         Deletes the given tasks using the pair id
-    */
+    */ 
     public function deleteTask(Request $request)
     {
 

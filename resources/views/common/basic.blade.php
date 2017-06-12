@@ -9,11 +9,14 @@
     <link rel="icon" href="../../favicon.ico">
     <title>Task Notification Dashboard</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/animate.css" rel="stylesheet">
-    <link href="./css/dashboard.css" rel="stylesheet">
-    <script src="./js/jquery-1.11.3.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="{!! asset('css/bootstrap.min.css') !!}" rel="stylesheet">
+    <link href="{!! asset('css/animate.css') !!}" rel="stylesheet">
+    <link href="{!! asset('css/basic.css') !!}" rel="stylesheet">
+
+    <script type="text/javascript" src="{!! asset('js/jquery-2.2.4.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/bootstrap.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/wow.js') !!}"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,9 +38,10 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url('/help') }}">Help</a></li>
+                    <li><a href="{{ url('/about') }}">About</a></li>
                     @if (!Auth::guest())
                         <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                        <li><a href="{{ url('/help') }}">Help</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>

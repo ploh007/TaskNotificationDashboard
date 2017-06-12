@@ -1,279 +1,156 @@
-<!--===========================================
-=            Current Tasks Section            =
-============================================-->
-<h2 class="sub-header">Tasks To Complete</h2>
-<div class="table table-condensed table-responsive">
-    <table class="table table-bordered table-hover table-striped">
-        <thead>
-            <tr>
-                <th>Task #</th>
-                <th>Task Name</th>
-                <th>Category</th>
-                <th>Due Date</th>
-                <th>Notes</th>
-                <th>Status</th>
-                <th>Controls</th>
-                <!-- <th>Task Status</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($tasks as $task) @if ($task->status === "Not Completed")
-            <tr>
-                <!-- Task Name -->
-                <td id="task-id">{{ $task->id }}</td>
-                <td>{{ $task->name }}</td>
-                <td>{{ $task->group }}</td>
-                <td>{{ $task->dueDate }}</td>
-                <td>{{ $task->notes }}</td>
-                <td>{{ $task->status }}</td>
-                <td>
-                    <button class="btn btn-xs btn-default complete-task"><span class="glyphicon glyphicon-ok-sign"></span> Completed </button>
-                    <button class="btn btn-xs btn-default uncomplete-task"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Un-Complete </button>
-                    <button class="btn btn-xs btn-default delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
-                </td>
-            </tr>
-            @endif @endforeach
-        </tbody>
-    </table>
+
+<div class="row">
+<div class="col-md-4 text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="col-md-6">Calendar Widget</h4>
+            <div class="col-md-6 input-group input-group-sm">
+                <span class="input-group-addon">View By</span>
+                <select class="form-control" id="sel2">
+                    <option>Week</option>
+                    <option>Month</option>
+                    <option>Year</option>
+                </select>
+            </div>
+        </div>
+        <div class="panel-body">
+            <h4>Calendar Widget To Add/View Tasks</h4>
+            <p>
+                User's should be able to mark up dates to view/create task for the specific dates corresponding to the calendar. 
+                Users should also be able to view a quick display of information (i.e. completed, created tasks for the particular date)
+            </p>
+            <div class="button-group">
+                <button class="btn btn-sm btn-default" id="add-task-budget">Go To Date</button>
+                <button class="btn btn-sm btn-default" id="add-task-budget">Archive Date</button>
+            </div>
+        </div>
+    </div>
 </div>
-<!--====  End of Current Tasks Section  ====-->
-<!--=================================================
-=            Past Completed Tasks Section            =
-==================================================-->
-<h2 class="sub-header">Past Completed Tasks</h2>
-<div class="table table-condensed table-responsive ">
-    <table class="table table-bordered table-hover table-striped">
-        <thead>
-            <tr>
-                <th>Task #</th>
-                <th>Task Name</th>
-                <th>Category</th>
-                <th>Due Date</th>
-                <th>Notes</th>
-                <th>Status</th>
-                <th>Controls</th>
-                <!-- <th>Task Status</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($tasks as $task) @if ($task->status === "Completed")
-            <tr>
-                <!-- Task Name -->
-                <td id="task-id">{{ $task->id }}</td>
-                <td>{{ $task->name }}</td>
-                <td>{{ $task->group }}</td>
-                <td>{{ $task->dueDate }}</td>
-                <td>{{ $task->notes }}</td>
-                <td>{{ $task->status }}</td>
-                <td>
-                    <button class="btn btn-xs btn-default complete-task"><span class="glyphicon glyphicon-ok-sign"></span> Completed </button>
-                    <button class="btn btn-xs btn-default uncomplete-task"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Un-Complete </button>
-                    <button class="btn btn-xs btn-default delete-task"><span class="glyphicon glyphicon-minus-sign"></span> Remove </button>
-                </td>
-            </tr>
-            @endif @endforeach
-        </tbody>
-    </table>
+
+<div class="col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="col-md-9">Tasks</h4> 
+            
+            <div class="col-md-3 input-group input-group-sm">
+                <span class="input-group-addon">Sort By</span>
+                <select class="form-control" id="sel1">
+                    <option>Category</option>
+                    <option>Due Date</option>
+                    <option>Task ID</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="panel-body panel-tasks">
+            
+
+            <!--===========================================
+            =            Current Tasks Section            =
+            ============================================-->
+
+            @if (count($tasks) == 0)
+                <div class="col-md-12">
+                    <h4>Congratulations! All Caught Up on your tasks!</h4> 
+                </div>
+            @else
+                <div class="wow fadeInDown" data-wow-delay="0s">
+                    <div class="table-container">
+                        <table id="current-tasks" class="table table-condensed table-responsive">
+                            <tbody>
+                                @foreach ($tasks as $task) 
+                                    @if ($task->status === "Not Completed")
+                                        <tr>
+                                            <td>
+                                                <div class="col-md-2 text-center">
+                                                    <h3 id="task-id">{{ $task->id }}</h3>
+                                                    Group {{ $task->group}}
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <h4>{{ $task->name }}
+                                                    @if ($task->priority)
+                                                         <span class="label label-danger priority-label">P</span>
+                                                    @endif
+                                                    </h4> 
+                                                    <p>{{ $task->dueDate }}</p>
+                                                    {{ $task->notes }}
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                    <div class="btn-group-vertical">
+                                                        <button class="btn btn-sm btn-default complete-task">Complete</button>
+                                                        <button class="btn btn-sm btn-default uncomplete-task">Un-Complete</button>
+                                                        <button class="btn btn-sm btn-default delete-task">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endif 
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                @endif
+                <!--====  End of Current Tasks Section  ====-->
+        </div>
+        <!-- <div class="panel-footer"></div> -->
+    </div>
 </div>
-<!--====  End of Past Completed Tasks Section  ====-->
+</div>
+
+
+<div class="row">
+
+<div class="col-md-12">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">Archived Tasks</h4>
+    </div>
+    <div class="panel-body">
+        <!--=================================================
+        =            Past Completed Tasks Section            =
+        ==================================================-->
+        <div class="wow fadeInDown" data-wow-delay="0s">
+            <div class="table">
+                <table id="completed-tasks" class="table">
+                    <tbody>
+                        @foreach ($tasks as $task) 
+                            @if ($task->status === "Completed")
+                                <tr>
+                                    <td>
+                                        <div class="col-md-2 text-center">
+                                            <h4 id="task-id">{{ $task->id }}</h4>
+                                            Group {{ $task->group }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4>{{ $task->name }}</h4> 
+                                            <!-- <p>{{ $task->dueDate }}</p> -->
+                                            {{ $task->notes }}
+                                        </div>
+                                        <div class="col-md-2 text-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-default complete-task">C</button>
+                                                <button class="btn btn-sm btn-default uncomplete-task">UC</button>
+                                                <button class="btn btn-sm btn-default delete-task">D</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endif 
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--====  End of Past Completed Tasks Section  ====-->
+    </div>
+</div>
+</div>
+</div>
+
+
 <!--====================================
 =            Script Content            =
 =====================================-->
-<script>
-
-var getTaskId = function (item){
-    console.log("Fetched item with the following ID:" + parseInt($(item).closest("tr").find('#task-id').text()));
-    
-    return parseInt($(item).closest("tr").find('#task-id').text());
-}
-
-$(".delete-task").on('click', function(e) {
-
-    e.preventDefault();
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    })
-
-    $(document).ajaxStart(function() {
-        $('#loading').fadeIn("slow");
-    });
-
-    $(document).ajaxStop(function() {
-        $('#loading').fadeOut("slow");
-    });
-
-    // Conduct delete request on HTTP Post route
-    // Parse the parent node element and get the task id to delete
-    var taskId = getTaskId(this);
-
-    console.log("Deleting Task with task id:" + taskId);
-
-    var formData = {
-        taskid: taskId,
-    }
-
-    console.log(formData);
-
-    $.ajax({
-        url: './delete-tasks',
-        type: 'POST',
-        dataType: 'json',
-        data: formData,
-        dataType: 'json',
-        success: function(data) {
-
-            console.log(data);
-
-            if (data) {
-                // Notify user of successfully added task
-                $('#taskCreationStatus').hide();
-                $('#taskCreationStatus').show();
-
-                console.log("Successfully Deleted Task!");
-
-            } else if (!data) {
-                // Notify user of failed added task
-            } else {
-                // Notify user of unspecified added task
-            }
-
-            // Refresh table task data
-            viewTables();
-        },
-        error: function(data, responseText) {
-            console.log(data.responseJSON);
-            console.log(responseText);
-        }
-    });
-});
-
-$(".complete-task").on('click', function(e) {
-
-    e.preventDefault();
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    })
-
-    $(document).ajaxStart(function() {
-        $('#loading').fadeIn("slow");
-    });
-
-    $(document).ajaxStop(function() {
-        $('#loading').fadeOut("slow");
-    });
-
-    // Conduct delete request on HTTP Post route
-    // Parse the parent node element and get the task id
-    var taskId = getTaskId(this);
-
-    console.log("Completed Task with task id:" + taskId);
-
-    var formData = {
-        taskid: taskId,
-    }
-
-    console.log(formData);
-
-    $.ajax({
-        url: './complete-tasks',
-        type: 'POST',
-        dataType: 'json',
-        data: formData,
-        dataType: 'json',
-        success: function(data) {
-
-            console.log(data);
-
-            if (data) {
-                // Notify user of successfully added task
-                $('#taskCreationStatus').hide();
-                $('#taskCreationStatus').show();
-
-                console.log("Successfully Completed Task!");
-
-            } else if (!data) {
-                // Notify user of failed added task
-            } else {
-                // Notify user of unspecified added task
-            }
-
-            // Refresh table task data
-            viewTables();
-        },
-        error: function(data, responseText) {
-            console.log(data.responseJSON);
-            console.log(responseText);
-        }
-    });
-});
-
-$(".uncomplete-task").on('click', function(e) {
-
-    e.preventDefault();
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    })
-
-    $(document).ajaxStart(function() {
-        $('#loading').fadeIn("slow");
-    });
-
-    $(document).ajaxStop(function() {
-        $('#loading').fadeOut("slow");
-    });
-
-    // Conduct delete request on HTTP Post route
-    // Parse the parent node element and get the task id
-    var taskId = getTaskId(this);
-
-    console.log("Completed Task with task id:" + taskId);
-
-    var formData = {
-        taskid: taskId,
-    }
-
-    console.log(formData);
-
-    $.ajax({
-        url: './uncomplete-tasks',
-        type: 'POST',
-        dataType: 'json',
-        data: formData,
-        dataType: 'json',
-        success: function(data) {
-
-            console.log(data);
-
-            if (data) {
-                // Notify user of successfully added task
-                $('#taskCreationStatus').hide();
-                $('#taskCreationStatus').show();
-
-                console.log("Successfully UnCompleted Task!");
-
-            } else if (!data) {
-                // Notify user of failed added task
-            } else {
-                // Notify user of unspecified added task
-            }
-
-            // Refresh table task data
-            viewTables();
-        },
-        error: function(data, responseText) {
-            console.log(data.responseJSON);
-            console.log(responseText);
-        }
-    });
-});
-</script>
+<script type="text/javascript" src="{!! asset('js/tasks.js') !!}"></script>
 <!--====  End of Script Content  ====-->

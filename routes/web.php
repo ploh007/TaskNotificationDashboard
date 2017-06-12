@@ -11,15 +11,15 @@
 |
 */
 
+Auth::routes();
+
+Route::auth();
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index');
-
-Route::auth();
 
 Route::get('/tasks', 'TaskController@index');
 
@@ -27,6 +27,19 @@ Route::get('/help', function() {
 	return view('help');
 });
 
+Route::get('/about', function() {
+	return view('about');
+});
+
+
+// Rpoute Management for Groups 
+Route::post('/view-groups', 'GroupController@getGroups');
+
+Route::post('/create-groups', 'GroupController@createGroups');
+
+Route::post('/manage-groups', 'GroupController@manageGroups');
+
+// Rpoute Management for Tasks 
 Route::post('/view-tasks', 'TaskController@getTasks');
 
 Route::post('/create-tasks', 'TaskController@createTasks');
@@ -38,5 +51,5 @@ Route::post('/uncomplete-tasks', 'TaskController@uncompleteTask');
 Route::post('/complete-tasks', 'TaskController@completeTask');
 
 Route::get('/dashboard', function () {
-    return view('app.landing');
+    return view('app.dashboard');
 })->middleware('auth');

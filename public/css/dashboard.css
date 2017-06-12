@@ -1,107 +1,58 @@
 /*
- * Base structure
- */
-
-
-/* Move down content because we have a fixed navbar that is 50px tall */
+    CSS File for DashBoard 
+*/
 
 body {
-    font-family: 'Raleway', sans-serif;
-    padding-top: 50px;
-    font-size: 1.5em;
-/*    background-color: #00BFA5;*/
-
-}
-
-.jumbotron {
     background-color: #fff;
-    margin: 0px;
-}
-
-.jumbotron p {
-    font-weight:500;
-    /*font-size: 1.1em;*/
-}
-
-#task-text {
-    font-size: 2em;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    /*background-color: #00BFA5;*/
     color: #000;
-    font-weight: bold;
-}
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-}
-
-::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-    background-color: #00BFA5;
-}
-
-
-/*
- * Global add-ons
- */
-
-.sub-header {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-
-/*
- * Top navigation
- * Hide default border to remove 1px line.
- */
-
-.navbar-fixed-top {
-    border: 0;
-}
-
-.navbar-inverse {
-    background-color: #00BFA5;
-    color: #fff;
-    font-weight: 500;
-}
-
-.navbar-inverse .navbar-brand {
-    color: #fff;
-}
-
-.navbar-inverse .navbar-nav>li>a {
-    color: #fff;
 }
 
 table {
-    font-size: 0.9em;
-    /*font-weight: 500;*/
-    font-family: "Open Sans", sans-serif;
+    font-size: 0.8em;
+    font-family: 'Montserrat', sans-serif;
 }
 
+.table-container {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.modal-backdrop
+{
+    opacity:0.35 !important;
+}
+
+.modal-dialog {
+    margin: 50px auto;
+}
+
+/*.fade {
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
+}
+
+.fade.in {
+  opacity: 1;
+  transform: scale(1);
+}*/
 
 
 /*
  * Sidebar
  */
-
-
 /* Hide for mobile, show later */
 
 .sidebar {
     display: none;
-    background-color: #EEEEEE;
+    background-color: #d2ddda;
     
+}
+
+.panel-tasks {
+    padding: 0px;
 }
 
 @media (min-width: 768px) {
@@ -116,7 +67,6 @@ table {
         overflow-x: hidden;
         overflow-y: auto;
         /* Scrollable contents if viewport is shorter than content. */
-        border-right: 3px solid #00BFA5;
     }
 }
 
@@ -128,18 +78,27 @@ table {
     /* 20px padding + 1px border */
     margin-bottom: 20px;
     margin-left: -20px;
+    font-weight: bold;
 }
 
 .nav-sidebar > li > a {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 10px;
+    background-color: #d2ddda;
+    margin: 0px;
+}
+
+.nav-sidebar > li > a:hover {
+    background-color: #00bfa5;
+    color: #fff;
+    transition: 0.5s ease-in-out;
 }
 
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
     color: #fff;
-    background-color: #00BFA5;
+    background-color: #165f94;
+    border-left: 5px solid #00bfa5;
 }
 
 
@@ -186,31 +145,32 @@ table {
     border-radius: 50%;
 }
 
-.action-tiles {
-    font-size: 40px;
-    margin: 0 auto;
-    text-align: center;
+#button-row {
+    margin: 0px -60px 0px -50px;
 }
 
-.thumbnail {
-    background-color: #34495e;
+
+.btn-tiles {
+    background-color: #363636;
     color: #fff;
-    padding: 20px;
-    width: 100%;
-    border: 2px solid #fff;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 0px;
 }
 
-.thumbnail .caption {
+.btn-tiles:hover {
+    /*transition: 0.5s;*/
+    background-color: #656464;
     color: #fff;
-    text-align: center;
+    /*border: 2px solid #34495e;*/
 }
 
-.thumbnail:hover {
-    transition: 0.5s;
-    background-color: #fff;
-    color: #34495e;
-    border: 2px solid #34495e;
+.btn-tiles p{
+    /*visibility: hidden;*/
+}
+
+.btn-tiles:hover p{
+    /*visibility: visible;*/
+    animation: fadeInDown 0.25s;
 }
 
 @-webkit-keyframes slideDown {
@@ -322,66 +282,173 @@ table {
     display: none;
 }
 
-#information-jumbotron {
-    border-top: 5px solid #00BFA5;
-    border-bottom: 5px solid #00BFA5;
-    background-color: #E0F2F1;
-    margin-top: none;
-    margin-bottom: none;
-    padding: none;
-}
-
-.custom-center {
-    text-align: center;
-}
-
 /* Main Jumbotron Content */
-
-#main-jumbotron {
-    background-color: #fff;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/hero.jpg);
-    background-size: cover;
-    padding-top: 20vh;
-    height: 80vh;
-    margin-bottom: 0px;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-}
-
-#main-jumbotron .text-content{
-    font-weight: bold;
-    color: #fff;
-    padding: 30px;
-    margin: 10px;
-    animation: 1s 0.5s fadeIn ease-in-out;
-    animation-fill-mode: forwards;
-    visibility: hidden;
-}
-
-#features-jumbotron {
-    background-color: #fff;
-}
-
-#slogan-jumbotron {
-    background-color: #277f71;
-    color: #fff;
-    border-top: 10px solid #00BFA5;
-    padding: 10px;
-}
-
-.custom-btn {
-    background-color: #00BFA5;
-    color: #fff;
-    border: none;
-}
-
-.modal-header {
-    background-color: #448AFF;
-    color: #fff;
-}
 
 .panel-default>.panel-heading {
     background-color: #00BFA5;
     color: #fff;
     font-weight: bold;
+}
+
+.metric-indicator {
+    border-radius: 10px;
+    border: 3px solid #00BFA5;
+    padding: 10px;
+    color: #00BFA5;
+    background-color: #fff;
+    font-weight: bold;
+}
+
+
+.background {
+    fill: inherit;
+}
+
+.component {
+    fill: none;
+    width: 33%;
+}
+
+.component .label {
+    font-family: 'Montserrat', sans-serif;
+    text-anchor: middle;
+    fill: #000;
+    font-size: 13px;
+}
+
+.arc {
+    stroke-weight:0.1;
+    fill: #00bfa5;
+}
+
+
+.arc2 {
+    stroke-weight:0.1;
+    fill: #3660b0;
+}
+
+
+.label {
+    font-family: 'Montserrat', sans-serif;
+    text-anchor: middle;
+    fill: #000;
+}
+
+.radial-svg {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+.radial-container {
+    background: #fff;
+}
+
+#test .arc2 {
+    stroke-weight:0.1;
+    fill: #3660b0;
+}
+
+#outer {
+    background: inherit;
+    border-radius: 5px;
+    color: #000;
+}
+
+#div1, #div2, #div3, #div4 {
+    width: 33%;
+    height: 200px;
+    box-sizing: border-box;
+    float: left;
+    background: none;
+    text-align: center;
+    padding: 0 0 0 30px;
+}
+
+#div2 .arc {
+    stroke-weight: 0.1;
+    /*fill: #1b1464;*/
+}
+
+#div2 .arc2 {
+    stroke-weight: 0.1;
+    fill: #b00d08;
+}
+
+
+.selectedRadial {
+    border-radius: 3px;
+    background: #f4f4f4;
+    color: #000;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+    border: 1px solid rgba(200,200,200,0.85);
+}
+
+.radial {
+    border-radius: 3px;
+    background: #FFFFFF;
+    color: #000;
+
+}
+
+#line{
+    width: 600px;
+    margin: 20px 0;
+}
+
+.priority-label {
+    font-size: 0.5em;
+    border-radius: 20px;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+/* CSS Buttton Styles */
+.onoffswitch {
+    position: relative; width: 41px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 50px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "";
+    padding-left: 10px;
+    background-color: #EEEEEE; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 16px; margin: 4px;
+    background: #A1A1A1;
+    position: absolute; top: 0; bottom: 0;
+    right: 17px;
+    border: 1px solid #999999; border-radius: 30px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+    background-color: #EF5350; 
 }

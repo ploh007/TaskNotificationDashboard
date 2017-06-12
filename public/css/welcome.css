@@ -1,0 +1,53 @@
+/*
+    Home Page Syling
+*/
+
+.jumbotron {
+    background-color: #fff;
+    margin: 0px;
+}
+
+.jumbotron p {
+    font-weight:500;
+}
+
+#task-text {
+    font-size: 2em;
+}
+
+#welcome-jumbotron {
+    background-color: #fff;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/hero.jpg);
+    background-size: cover;
+    padding-top: 20vh;
+    height: 80vh;
+    margin-bottom: 0px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+#welcome-jumbotron #text-content{
+    font-weight: bold;
+    color: #fff;
+    padding: 30px;
+    margin: 10px;
+}
+
+#information-jumbotron {
+    border-top: 5px solid #00BFA5;
+    border-bottom: 5px solid #00BFA5;
+    background-color: #E0F2F1;
+    margin: 0 inherit 0 inherit;
+    padding: none;
+}
+
+#features-jumbotron {
+    background-color: #fff;
+}
+
+#slogan-jumbotron {
+    background-color: #277f71;
+    color: #fff;
+    border-top: 10px solid #00BFA5;
+    padding: 10px;
+}
