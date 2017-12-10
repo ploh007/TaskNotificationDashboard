@@ -45,7 +45,7 @@ html {
                 <div class="panel-body">
                     <div class="container">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                            
+                            {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
                                 <input id="email" placeholder="Email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus> @if ($errors->has('email'))
