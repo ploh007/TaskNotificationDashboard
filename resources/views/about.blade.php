@@ -2,6 +2,8 @@
 =            About Section            =
 ===================================-->
 @extends('common.basic') @section('content')
+<link href="{!! asset('css/about.css') !!}" rel="stylesheet">
+
 <div class="container">
     <h1>About Content</h1>
     <hr class="featurette-heading"></hr>

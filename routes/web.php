@@ -27,9 +27,14 @@ Route::get('/help', function() {
 	return view('help');
 });
 
+Route::get('/why', function() {
+	return view('why');
+});
+
 Route::get('/about', function() {
 	return view('about');
 });
+
 
 
 // Rpoute Management for Groups 

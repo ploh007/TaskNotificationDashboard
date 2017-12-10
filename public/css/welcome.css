@@ -1,53 +1,207 @@
-/*
-    Home Page Syling
-*/
+/* Home Page Syling */
 
 .jumbotron {
+    /* Background & Color */
     background-color: #fff;
+
+   /* Display & Box Model */
     margin: 0px;
+    border-radius: 0px;
 }
 
 .jumbotron p {
-    font-weight:500;
+    /* Text */
+    font-weight: 500;
+    font-size: 1em;
 }
 
 #task-text {
+    /* Text */
+    font-weight: 700;
     font-size: 2em;
+    letter-spacing: -0.1em; 
 }
 
 #welcome-jumbotron {
-    background-color: #fff;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/hero.jpg);
+    /* Background & Color */
+    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../img/laptop-desk-web.jpg);
+    /*background-image: url(../img/laptop-desk.jpeg);*/
     background-size: cover;
-    padding-top: 20vh;
+    background-color: #fff;
+    color: #00746b;
+
+    /* Display & Box Model */
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.5);
     height: 80vh;
     margin-bottom: 0px;
-    font-family: 'Montserrat', sans-serif;
+    padding-top: 20vh;
+    position:relative;
+    z-index: 100;
+
+    /* Text */
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
-#welcome-jumbotron #text-content{
+#welcome-jumbotron #text-content {
+    /* Text */
     font-weight: bold;
-    color: #fff;
-    padding: 30px;
-    margin: 10px;
+    
+    /* Display & Box Model */
+    padding: 5px;   
+}
+
+#welcome-tagline {
+    /* Text */
+    font-weight: 700;
+    display: inline-block;
+    border-top: 7px solid #ed145b;
+    padding: 5px;
+    letter-spacing: -0.1em; 
 }
 
 #information-jumbotron {
-    border-top: 5px solid #00BFA5;
+    /* Background & Color */
+    background-color: #00746b;
+    color:#fff;
+
+    /* Display & Box Model */
     border-bottom: 5px solid #00BFA5;
-    background-color: #E0F2F1;
     margin: 0 inherit 0 inherit;
-    padding: none;
+    padding: 0px;
+    z-index: 90;
 }
 
 #features-jumbotron {
+    /* Background & Color */
+    background-color: #fff;
+    background-image: url(../img/feature-bg.jpg);
+    background-size: cover;
+}
+
+#features-jumbotron img {
+    /* Background & Color */
+    margin: 10px;
+}
+
+#features-jumbotron h2 {
+    /* Background & Color */
+    color: #00746b;
+
+    /* Text */
+    font-weight: 700;
+}
+
+.feature-tile img {
+    width: 30px;
+    transition: 0.5s;
+}
+
+.feature-tile:hover img {
+    transform: scaleZ(2) translateZ(-100px);
+}
+
+.tile:hover {
+    color: #ed145b;
     background-color: #fff;
 }
 
+.tile:hover h3  {
+    color: #ed145b;
+}
+
+
 #slogan-jumbotron {
-    background-color: #277f71;
+    /* Background & Color */
+    background-color: #00746b;
     color: #fff;
+
+    /* Display & Box Model */
     border-top: 10px solid #00BFA5;
     padding: 10px;
+}
+
+#footer-jumbotron { 
+    /* Background & Color */
+    background-color: #00746b;
+}
+
+.tile {
+    /* Display & Box Model */
+    border-right: 5px solid;
+}
+
+.tile > p {
+    margin: 5px;
+}
+
+.tile img {
+    -webkit-filter: grayscale(100%) brightness(70%) blur(2.5px); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%) brightness(70%) blur(2.5px);
+    transition: 0.5s;
+}
+
+.tile:hover img {
+    -webkit-filter: grayscale(0%) brightness(100%) blur(0px); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%) brightness(100%) blur(0px);
+}
+
+.outline-header {
+    /* Display & Box Model */
+    margin: 0 auto;
+    border: 3px solid #00746b;
+    display: inline-block;
+    padding: 15px;
+}
+
+.feature-heading {
+    /* Display & Box Model */
+    width: 100%; 
+    margin: 5px;
+
+    /* Text */
+    font-weight: bolder;
+
+    /* Background & Color */
+    /*color: #00746b;*/
+    color: #fff;
+}
+
+#sitemap-jumbotron {
+    background-color: #00746b;    
+}
+
+#sitemap-jumbotron ul {
+    list-style: none
+}
+
+#sitemap-jumbotron ul > li > a {
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Small devices (tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+    .feature-tile img {
+        width: 30px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+    .feature-tile img {
+        width: 40px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+    .feature-tile img {
+        width: 50px;
+    }
 }

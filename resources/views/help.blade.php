@@ -2,6 +2,7 @@
 =            Help Section            =
 ===================================-->
 @extends('common.basic') @section('content')
+<link href="{!! asset('css/help.css') !!}" rel="stylesheet">
 <div class="container">
     <h1>Help Content</h1>
     <p>Help regarding basic usage of the task notification system</p>

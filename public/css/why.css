@@ -1,0 +1,15 @@
+/* CSS File for DashBoard  */
+
+body {
+    /* Background & Color */
+    background-color: #00746b;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 3.5rem;
+}
+
+table {
+    /* Text */
+    font-size: 0.8em;
+    font-family: 'Montserrat', sans-serif;
+}

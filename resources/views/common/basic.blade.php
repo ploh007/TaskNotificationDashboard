@@ -9,14 +9,15 @@
     <link rel="icon" href="../../favicon.ico">
     <title>Task Notification Dashboard</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link href="{!! asset('css/bootstrap.min.css') !!}" rel="stylesheet">
-    <link href="{!! asset('css/animate.css') !!}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+    <link href="{!! asset('css/third-party/bootstrap.css') !!}" rel="stylesheet">
+    <link href="{!! asset('css/third-party/animate.css') !!}" rel="stylesheet">
     <link href="{!! asset('css/basic.css') !!}" rel="stylesheet">
-
-    <script type="text/javascript" src="{!! asset('js/jquery-2.2.4.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/jquery-3.2.1.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/popper.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/bootstrap.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/wow.js') !!}"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -25,58 +26,58 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header"> 
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url('/') }}">Task Notification System</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url('/help') }}">Help</a></li>
-                    <li><a href="{{ url('/about') }}">About</a></li>
-                    @if (!Auth::guest())
-                        <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+    <nav class="navbar navbar-expand-md navbar-inverse fixed-top">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{{ url( '/') }} ">Task Notification System</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url( '/') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url( '/why') }}">Why</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url( '/about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url( '/help') }}">Help</a>
+                </li>
+                @if (!Auth::guest())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url( '/dashboard') }}">Dashboard</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret "></span>
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url( '/logout') }}" onclick="event.preventDefault(); document.getElementById( 'logout-form').submit(); ">
+                                Logout
                             </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @else
-                        <li>
-                            <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
+                        <form id="logout-form" action="{{ url( '/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url( '/login') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a>
+                </li>
+                @endif
+            </ul>
         </div>
     </nav>
-     @yield('content')
+    @yield('content')
 </body>
-
 <!--=====================================
 =            Loading Spinner            =
 ======================================-->
 <div id="loading"></div>
 <!--====  End of Loading Spinner  ====-->
-
-<footer>
-    Crafted By || Paul Loh
-</footer>
+<script>
+new WOW().init();
+</script>
 </html>

@@ -1,108 +1,130 @@
-@extends('common.basic') 
-@section('content')
+@extends('common.basic') @section('content')
 <link href="{!! asset('css/welcome.css') !!}" rel="stylesheet">
-
-<script>
-    new WOW().init();
-</script>
 
 <div class="jumbotron wow fadeInDown" id="welcome-jumbotron">
     <div class="container">
         <div class="center-block text-center wow">
-            <h1 class="wow fadeInUp" data-wow-delay=".5s" id="text-content">
-                <div id="task-text"> <img src="{!! asset('img/list.svg') !!}" width="100px"> Task</div>
-                NOTIFICATION<br>
-            </h1>
-            <div class="btn-group wow fadeIn" data-wow-delay=".5s">
-                <a class="btn btn-default btn-lg custom-btn" href="{{ url( '/login') }}">Login
-                </a>
-                <a class="btn btn-default btn-lg custom-btn" href="{{ url( '/register') }}">Register
-                </a>
-            </div>
+            <h2 class="wow fadeInUp" data-wow-delay=".5s" id="text-content">
+                <div id="task-text">Task </div>
+                Notification
+            </h2>
+            <h3 id="welcome-tagline">DO MORE BY DOING LESS</h3>
         </div>
     </div>
 </div>
-<div class="jumbotron wow fadeInUp" id="information-jumbotron">
-    <div class="container"> 
-        <h1><strong>What's it all about? </strong><span class="text-muted">What's different.</span></h1>
-        <hr></hr>
-        <div class="col-md-4 wow fadeInLeft" data-wow-delay=".5s">
+<div class="jumbotron wow fadeInUp" id="information-jumbotron" data-wow-offset="200">
+    <div class="row no-gutters">
+        <div class="col-md-4 wow fadeInLeft text-center tile" data-wow-delay=".5s" data-wow-offset="200">
             <div class="img-responsive center-block">
-                <img src="{!! asset('img/list.svg') !!}" class="center-block" width="100px">
+                <img src="{!! asset('img/phone-desk-web.jpg') !!}" class="center-block" width="100%">
             </div>
-            <h3 class="text-center"><strong>Managing.</strong></h3>
+            <h3 class="feature-heading">MANAGING.</h3>
             <p>
-                Keep track of your daily tasks on your devices and get notified wherever and whenever.
+                Get notified wherever and whenever.
             </p>
         </div>
-        <div class="col-md-4  wow fadeInUp" data-wow-delay=".5s">
+        <div class="col-md-4 wow fadeInUp text-center tile" data-wow-delay=".5s" data-wow-offset="200">
             <div class="img-responsive">
-                <img src="{!! asset('img/calendar.svg') !!}" class="center-block" width="100px">
+                <img src="{!! asset('img/calendar-web.jpg') !!}" class="center-block" width="100%">
             </div>
-            <h3 class="text-center"><strong>Organizing.</strong></h3>
+            <h3 class="feature-heading">ORGANIZING.</h3>
             <p>
-                Keep track of your tasks easily using color codes, custom alert messages and Intelli Grouping.
+                Easily organize using Intelli Grouping.
             </p>
         </div>
-        <div class="col-md-4 wow fadeInRight" data-wow-delay=".5s">
+        <div class="col-md-4 wow fadeInRight text-center tile" data-wow-delay=".5s" data-wow-offset="200">
             <div class="img-responsive center-block">
-                <img src="{!! asset('img/presentation.svg') !!}" class="center-block" width="100px">
+                <img src="{!! asset('img/working-couch-web.jpg') !!}" class="center-block" width="100%">
             </div>
-            <h3 class="text-center"><strong>Doing.</strong></h3>
+            <h3 class="feature-heading">DOING.</h3>
             <p>
-                Let's you focus on doing your tasks and getting to what really matters.
+                Doing what really matters.
             </p>
         </div>
     </div>
 </div>
-<div class="jumbotron wow fadeInUp" id="features-jumbotron">
+<div class="jumbotron wow fadeInUp" id="features-jumbotron" data-wow-offset="200">
     <div class="container">
-        <h1 class="text-center"><strong>Features</strong></h1>
-        <hr class="featurette-heading"></hr>
-        <div class="row wow fadeIn" data-wow-delay=".5s">
-            <div class="col-md-8 col-md-push-4">
-                <p>
-                    Convential task management systems, involve continuous collection of unnecessary personal information and storage. Thus, I decided to create my own task management system. App free, hassle free. A simple web app that requires me to login and pushes me notifications as long as I keep it open.
-                </p>
-            </div>
-            <div class="col-md-4 col-md-pull-8">
-                <div class="img-responsive center-block">
-                    <img src="{!! asset('img/locked.svg') !!}" class="center-block" width="100px">
-                </div>
-            </div>
+        <div class="row center-block">
+            <h2 class="outline-header text-center m-auto">
+            FEATURES
+        </h2>
         </div>
-        <hr class="featurette-heading"></hr>
-        <div class="row wow fadeIn" data-wow-delay=".75s">
-            <div class="col-md-4 col-md-push-8">
-                <div class="img-responsive center-block">
-                    <img src="{!! asset('img/list-2.svg') !!}" class="center-block" width="100px">
-                </div>
-            </div>
-            <div class="col-md-8 col-md-pull-4">
+        <div class="row justify-content-md-center text-center">
+            <div class="col-md-6 feature-tile">
+                <img src="{!! asset('img/secure.svg') !!}" class="center-block" width="50px">
+                <h2>SECURE</h2>
                 <p>
-                    Easy creation of my task, and alerts should be given to me on demand and in a manner which informs me of information in a legible and easy manner. To use modern buzzwords "data visualization ".
+                    Keep your personal information secure. No collection of unnecessary personal information.
                 </p>
             </div>
-        </div>
-        <hr class="featurette-heading"></hr>
-        <div class="row wow fadeIn" data-wow-delay="1s">
-            <div class="col-md-8 col-md-push-4">
+            <div class="col-md-6 feature-tile">
+                <img src="{!! asset('img/security.svg') !!}" class="center-block" width="50px">
+                <h2>RELIABLE</h2>
                 <p>
-                    It’s free, quick and easy! 3 essentials for any task management system! For even more portability, you can carry around your own task management system by hosting it on a microcontroller, encrypt it and have a portable personal mini task management with you!
+                    Keep your personal information secure. No collection of unnecessary personal information.
                 </p>
             </div>
-            <div class="col-md-4 col-md-pull-8">
-                <div class="img-responsive center-block">
-                    <img src="{!! asset('img/presentation.svg') !!}" class="center-block" width="100px">
-                </div>
+            <div class="col-md-6 feature-tile">
+                <img src="{!! asset('img/lightbulb.svg') !!}" class="center-block" width="50px">
+                <h2>INTUITIVE</h2>
+                <p>
+                    Keep your personal information secure. No collection of unnecessary personal information.
+                </p>
+            </div>
+            <div class="col-md-6 feature-tile">
+                <img src="{!! asset('img/list-feature.svg') !!}" class="center-block" width="50px">
+                <h2>ESSENTIAL</h2>
+                <p>
+                    Keep your personal information secure. No collection of unnecessary personal information.
+                </p>
             </div>
         </div>
     </div>
 </div>
 <div class="jumbotron" id="slogan-jumbotron">
     <div class="container">
-        <div class="row text-center">
-            <h2>Get down. Start using it. Get stuff done.</h2>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h5>Get down. Start using it. Get stuff done.</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron" id="sitemap-jumbotron">
+    <div class="container">
+        <div class="row">   
+            <div class="col-md-2 wow fadeInUp">
+                <img src="{!! asset('img/lightbulb.svg') !!}" class="center-block" width="100px">
+            </div>
+            <div class="col-md-2 wow fadeInRight" data-wow-delay=".5s">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Why</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 wow fadeInRight" data-wow-delay="1s">
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 wow fadeInRight" data-wow-delay="1.25s">
+                <ul>
+                    <li><a href="#">Developer</a></li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Data Model</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 wow fadeInRight" data-wow-delay="1.5s">
+                
+            </div>
         </div>
     </div>
 </div>
